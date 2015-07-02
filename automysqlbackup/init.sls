@@ -13,5 +13,10 @@ automysqlbackup.conf:
     - template: jinja
 
 
-#
+/usr/local/bin/automysqlbackup /etc/automysqlbackup.conf :
+  cron.present:
+    - identifier: automysqlbackup
+    - user: root
+    - minute: 10
+    - hour: 8
 
