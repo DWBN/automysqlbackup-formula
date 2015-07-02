@@ -13,7 +13,7 @@ automysqlbackup.conf:
     - template: jinja
 
 
-/usr/local/bin/automysqlbackup /etc/automysqlbackup.conf :
+/usr/local/bin/automysqlbackup /etc/automysqlbackup.conf | /usr/bin/logger:
   cron.present:
     - identifier: automysqlbackup
     - user: root
