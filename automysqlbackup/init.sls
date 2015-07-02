@@ -3,6 +3,7 @@ automysqlbackup:
     - name: /usr/local/bin/automysqlbackup
     - user: root
     - source: salt://automysqlbackup/files/automysqlbackup
+    - mode: 700
 
 automysqlbackup.conf:
   file.managed:
