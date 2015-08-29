@@ -1,4 +1,4 @@
-{% from 'automysqlbackup/map.jinja' import automysqlbackup with context %}
+{% from 'automysqlbackup/map.jinja' import defaults with context %}
 
 
 automysqlbackup:
