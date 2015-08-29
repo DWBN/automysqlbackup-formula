@@ -1,3 +1,5 @@
-{% set defaults = salt['pillar.get']('automysqlbackup', {
+{% set config = salt['grains.filter_by']({
+  'default': {
     'daily_cron': true,
-}, merge=True) %}
+  },
+}, merge=salt['pillar.get']('automysqlbackup:lookup')) %}

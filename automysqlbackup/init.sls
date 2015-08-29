@@ -1,4 +1,4 @@
-{% from 'automysqlbackup/map.jinja' import defaults with context %}
+{% from 'automysqlbackup/map.jinja' import config with context %}
 
 
 automysqlbackup:
@@ -16,7 +16,7 @@ automysqlbackup.conf:
     - template: jinja
 
 
-{% if automysqlbackup.daily_cron %}
+{% if config.daily_cron %}
 /usr/local/bin/automysqlbackup /etc/automysqlbackup.conf | /usr/bin/logger:
   cron.present:
     - identifier: automysqlbackup
