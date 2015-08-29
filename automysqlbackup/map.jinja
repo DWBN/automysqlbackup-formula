@@ -1,0 +1,3 @@
+{% set defaults = salt['pillar.get']('automysqlbackup', {
+    'daily_cron': true,
+}, merge=True) %}

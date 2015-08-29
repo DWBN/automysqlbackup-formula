@@ -1,3 +1,6 @@
+{% from 'automysqlbackup/map.jinja' import automysqlbackup with context %}
+
+
 automysqlbackup:
   file.managed:
     - name: /usr/local/bin/automysqlbackup
@@ -13,10 +16,11 @@ automysqlbackup.conf:
     - template: jinja
 
 
+{% if automysqlbackup.daily_cron %}
 /usr/local/bin/automysqlbackup /etc/automysqlbackup.conf | /usr/bin/logger:
   cron.present:
     - identifier: automysqlbackup
     - user: root
     - minute: 10
     - hour: 8
-
+{% endif %}
