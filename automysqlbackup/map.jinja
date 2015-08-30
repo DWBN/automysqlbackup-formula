@@ -1,5 +1,8 @@
-{% set config = salt['grains.filter_by']({
+{% set automysqlbackup = salt['grains.filter_by']({
   'default': {
     'daily_cron': true,
+    'link_latest': false,
+    'friendly_name': 'database',
+    'backup_dir': '/vagrant/',
   },
 }, merge=salt['pillar.get']('automysqlbackup:lookup')) %}
